@@ -35,22 +35,15 @@
 	
 	// Read
 	function readPosts(note, dataHandler) {
-		var http = require('http');
-		http.get({
-			hostname: host,
-			port: 80,
-			path: '/notes/' + note + '/posts',
-			agent: false
-		}, function (res) {
-			res.setEncoding('utf8');
-			res.on('data', function (str) {
-				var json = JSON.parse(str);
+		jQuery.getJSON(
+			'http://' + host + '/notes/' + note + '/posts',
+			function (json) {
 				for (var row of json) {
 					row.data = JSON.parse(row.data);
 				}
 				dataHandler(json);
-			});
-		});
+			}
+		);
 	}
 	
 	function fillZero(num) {
@@ -79,25 +72,14 @@
 	
 	// Write
 	function writePost(note, name, content) {
-		var http = require('http');
-		var options = {
-			hostname: host,
-			port: 80,
-			path: '/notes/' + note + '/posts',
-			agent: false,
-			method: 'POST',
-			headers: {
-          		'Content-Type': 'application/json',
+		jQuery.ajax({
+			type: 'post',
+			url: 'http://' + host + '/notes/' + note + '/posts',
+			contentType: 'application/json',
+			data: JSON.stringify({name:name, content:content}),
+			success: function(data) {
 			}
-		};
-		var req = http.request(options, function (res) {
-			res.setEncoding('utf8');
-			res.on('data', function (str) {
-				console.log(str);
-			});
 		});
-		req.write(JSON.stringify({name:name, content:content}));
-		req.end();
 	}
 	
 	// Hook command
