@@ -55,7 +55,6 @@
 	}
 	
 	function sendToMessage(row) {
-		console.log(row);
 		var date = new Date(row.created_at);
 		var first = row.post_id + 
 		' ：' + row.data.name +
