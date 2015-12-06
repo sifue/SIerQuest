@@ -91,7 +91,11 @@
             switch (args[0]) {
 				case 'read':
 					readPosts(noteName, function (data) {
-						data.map(sendToMessage);
+						if (data.length === 0) {
+							$gameMessage.add('何も書かれていない。');
+						} else {
+							data.map(sendToMessage);
+						}
 					});
 					break;
 				case 'write':
