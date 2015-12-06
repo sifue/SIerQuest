@@ -65,8 +65,10 @@
 		fillZero(date.getMinutes()) + ':' +
 		fillZero(date.getSeconds());
 		$gameMessage.add(first);
-		var content = row.data.content.trim();
-		$gameMessage.add(content);
+		var content = row.data.content;
+		if (content) {
+			$gameMessage.add(content);
+		}
 	}
 	
 	// Write
