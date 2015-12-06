@@ -33,6 +33,15 @@
 	var parameters = PluginManager.parameters('MVNotes');
 	var host = String(parameters['host'] || 'Please set mv-notes server hostname');
 	
+	// Warm up heroku
+	jQuery.ajax({
+		type: 'get',
+		url: 'http://' + host + '',
+		contentType: 'text/plain',
+		success: function (data) {
+		}
+	});
+	
 	// Read
 	function readPosts(note, dataHandler) {
 		jQuery.getJSON(
@@ -68,6 +77,8 @@
 		var content = row.data.content;
 		if (content) {
 			$gameMessage.add(content);
+		} else {
+			$gameMessage.add('');
 		}
 	}
 	
