@@ -72,7 +72,8 @@
 		fillZero(date.getDate()) + ' ' +
 		fillZero(date.getHours()) + ':' +
 		fillZero(date.getMinutes()) + ':' +
-		fillZero(date.getSeconds());
+		fillZero(date.getSeconds()) + ' ID:' +
+		substring7(row.data.remote_address);
 		$gameMessage.add(first);
 		var content = row.data.content;
 		if (content) {
@@ -81,6 +82,14 @@
 			$gameMessage.add('');
 		}
 	}
+	
+	function substring7(str) {
+		if(str) {
+			return str.substring(0,7)
+		} else {
+			return '';	
+		}
+	} 
 	
 	// Write
 	function writePost(note, name, content) {
