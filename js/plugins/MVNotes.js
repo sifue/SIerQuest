@@ -113,7 +113,13 @@
 					break;
 				case 'write':
 					var name = prompt('名前を入力して下さい', '名無しさん');
+					if (!name) {
+						break;
+					}
 					var content = prompt('一行で内容を入力して下さい', '') 
+					if (!content) {
+						break;
+					}
 					writePost(noteName, name, content);
 					$gameMessage.add('雑記帳に内容が書き込まれた。');
 					break;
