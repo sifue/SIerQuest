@@ -9,6 +9,25 @@
         <link rel="apple-touch-icon" href="icon/icon.png">
         <link rel="stylesheet" type="text/css" href="fonts/gamefont.css">
         <title>SIerクエスト</title>
+        <style>
+        .notice {
+        position: fixed;
+        bottom: 20px;
+        color: #A0A0A0;
+        left: 10px;
+        right: 10px;
+        text-align: center;
+        font-size: 20px;
+        }
+        .notice a {
+        color: #9A9A9A;
+        }
+        @media screen and (min-width: 0px) and (max-device-width: 460px) {
+        .notice {
+            font-size: 30px;
+        }
+        }
+        </style>
     </head>
     <body style="background-color: black">
         <script type="text/javascript" src="js/libs/pixi.js"></script>
@@ -41,5 +60,6 @@
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <div class="notice">Twitter等のアプリから開いた場合セーブが動作しないことがあります<br>ブラウザアプリで開き直してください<br><a href="http://sifue.github.io/SIerQuest2/" target="_blank">続編のSIerクエスト2はこちら</a></div>
     </body>
 </html>
