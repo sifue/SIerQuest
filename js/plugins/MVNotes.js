@@ -73,7 +73,7 @@
 		fillZero(date.getHours()) + ':' +
 		fillZero(date.getMinutes()) + ':' +
 		fillZero(date.getSeconds()) + ' ID:' +
-		substring7(row.data.remote_address);
+		substring(row.data.remote_address);
 		$gameMessage.add(first);
 		var content = row.data.content;
 		if (content) {
@@ -83,9 +83,9 @@
 		}
 	}
 	
-	function substring7(str) {
+	function substring(str) {
 		if(str) {
-			return str.substring(0,7)
+			return str.substring(0,3);
 		} else {
 			return '';	
 		}
@@ -121,7 +121,7 @@
 					});
 					break;
 				case 'write':
-					var name = prompt('名前を入力して下さい', '名無しさん');
+					var name = prompt('名前を入力して下さい', '名無しさん#tripkey');
 					if (!name) {
 						break;
 					}
