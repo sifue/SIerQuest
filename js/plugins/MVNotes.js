@@ -67,12 +67,11 @@
 		var date = new Date(row.created_at);
 		var first = row.post_id + 
 		' ：' + row.data.name +
-		' ：' + date.getFullYear() + '/' +
+		' ：' + fillZero(date.getFullYear() % 100) + '/' +
 		+ fillZero(date.getMonth()) + '/' +
 		fillZero(date.getDate()) + ' ' +
 		fillZero(date.getHours()) + ':' +
-		fillZero(date.getMinutes()) + ':' +
-		fillZero(date.getSeconds()) + ' ID:' +
+		fillZero(date.getMinutes()) + ' ID:' +
 		substring(row.data.remote_address);
 		$gameMessage.add(first);
 		var content = row.data.content;
