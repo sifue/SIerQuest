@@ -68,7 +68,7 @@
 		var first = row.post_id + 
 		' ：' + row.data.name +
 		' ：' + fillZero(date.getFullYear() % 100) + '/' +
-		+ fillZero(date.getMonth()) + '/' +
+		+ fillZero(date.getMonth() + 1) + '/' +
 		fillZero(date.getDate()) + ' ' +
 		fillZero(date.getHours()) + ':' +
 		fillZero(date.getMinutes()) + ' ID:' +
